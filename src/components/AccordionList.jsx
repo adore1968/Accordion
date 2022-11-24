@@ -1,7 +1,16 @@
 import React from "react";
+import AccordionItem from "./AccordionItem";
+import { useGlobalContext } from "../context/AppContext";
 
 function AccordionList() {
-  return <div>AccordionList</div>;
+  const { accordion } = useGlobalContext();
+  return (
+    <div>
+      {accordion.map((item) => {
+        return <AccordionItem key={item.id} item={item} />;
+      })}
+    </div>
+  );
 }
 
 export default AccordionList;
